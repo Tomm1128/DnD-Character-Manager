@@ -5,7 +5,7 @@ function NavBar() {
   const navigate = useNavigate()
 
   const handleClick = () => {
-    navigate("create_character")
+    navigate("/create_character")
   }
 
   return (
