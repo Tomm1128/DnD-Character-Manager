@@ -12,9 +12,7 @@ function NavBar() {
     <div className="NavBar">
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
-            Dnd Character Manager
-          </a>
+          <span className="navbar-brand">Dnd Character Manager</span>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
