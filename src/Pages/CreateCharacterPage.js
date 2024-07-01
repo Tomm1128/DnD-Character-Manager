@@ -1,9 +1,11 @@
 import React from "react"
+import NavBar from "../Components/NavBar"
 
 function CreateCharacterPage() {
   return (
     <div className="App">
-      <h1>Dnd Character Manager</h1>
+      <NavBar />
+      <h1>Character Creation Page</h1>
     </div>
   )
 }
