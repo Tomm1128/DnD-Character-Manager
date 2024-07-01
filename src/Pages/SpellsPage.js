@@ -1,8 +1,6 @@
 import React from "react"
 
-import "./App.css"
-
-function App() {
+function SpellsPage() {
   return (
     <div className="App">
       <h1>Dnd Character Manager</h1>
@@ -10,4 +8,4 @@ function App() {
   )
 }
 
-export default App
+export default SpellsPage
