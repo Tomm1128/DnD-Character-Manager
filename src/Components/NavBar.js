@@ -1,7 +1,13 @@
 import React from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 
 function NavBar() {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate("create_character")
+  }
+
   return (
     <div className="NavBar">
       <nav className="navbar navbar-expand-md navbar-dark bg-dark">
@@ -27,6 +33,13 @@ function NavBar() {
                 </NavLink>
               </li>
             </ul>
+            <button
+              className="btn btn-primary"
+              id="create-character-btn"
+              onClick={handleClick}
+            >
+              Create Character
+            </button>
           </div>
         </div>
       </nav>
