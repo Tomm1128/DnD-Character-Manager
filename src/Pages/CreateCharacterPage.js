@@ -1,6 +1,6 @@
 import React, { useState } from "react"
-import NavBar from "../Components/NavBar"
-import CreateCharacterForm from "../Components/CreateCharacterForm"
+import NavBar from "../components/NavBar"
+import CreateCharacterForm from "../components/CreateCharacterForm"
 
 function CreateCharacterPage() {
   return (

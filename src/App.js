@@ -1,6 +1,6 @@
 import React from "react"
-import Home from "./Pages/Home"
-import NavBar from "./Components/NavBar"
+import Home from "./pages/Home"
+import NavBar from "./components/NavBar"
 
 import "./App.css"
 
