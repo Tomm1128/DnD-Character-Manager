@@ -78,19 +78,15 @@ function CreateCharacterForm() {
     <div className="create-character-form container mt-5">
       <h1>Create Character Form</h1>
       <form onSubmit={handleSubmit}>
-        {
-          <CharacterInfoForm
-            formData={formData}
-            updateFormData={updateFormData}
-          />
-        }
-        {
-          <AbilityScoresForm
-            formData={formData}
-            updateFormData={updateFormData}
-          />
-        }
-        {<RolePlayForm formData={formData} updateFormData={updateFormData} />}
+        <CharacterInfoForm
+          formData={formData}
+          updateFormData={updateFormData}
+        />
+        <AbilityScoresForm
+          formData={formData}
+          updateFormData={updateFormData}
+        />
+        <RolePlayForm formData={formData} updateFormData={updateFormData} />
         <button>Submit</button>
       </form>
     </div>

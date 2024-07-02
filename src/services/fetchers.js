@@ -5,7 +5,7 @@ const getCharacters = () => {
   return fetch(data).then((resp) => resp.json())
 }
 
-const idCheck = async () => {
+const createId = async () => {
   const currentCharacters = await getCharacters()
   if (currentCharacters.length === 0) {
     return "1"
@@ -18,7 +18,7 @@ const idCheck = async () => {
 }
 
 const createCharacter = async (newCharacter) => {
-  const newId = await idCheck()
+  const newId = await createId()
 
   return fetch(data, {
     method: "POST",
@@ -30,4 +30,4 @@ const createCharacter = async (newCharacter) => {
   }).then((resp) => resp.json())
 }
 
-export { createCharacter }
+export { getCharacters, createCharacter }
