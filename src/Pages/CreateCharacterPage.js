@@ -1,11 +1,12 @@
 import React from "react"
-import NavBar from "../Components/NavBar"
+import NavBar from "../components/NavBar"
+import CreateCharacterForm from "../components/CreateCharacterForm"
 
 function CreateCharacterPage() {
   return (
-    <div className="App">
+    <div className="Create-Character-Page">
       <NavBar />
-      <h1>Character Creation Page</h1>
+      <CreateCharacterForm />
     </div>
   )
 }
