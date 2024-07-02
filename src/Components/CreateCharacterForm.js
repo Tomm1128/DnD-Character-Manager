@@ -5,7 +5,8 @@ import RolePlayForm from "./RolePlayForm"
 
 const initialValues = {
   name: "",
-  height: "",
+  heightFeet: "",
+  heightInches: "",
   weight: "",
   alignment: "",
   languages: [],
@@ -37,10 +38,45 @@ function CreateCharacterForm() {
     setFormData(newData)
   }
 
+  const sanitizeData = () => {
+    const sanitizedData = { ...formData }
+
+    const numericFields = [
+      "level",
+      "strength",
+      "dexterity",
+      "constitution",
+      "intelligence",
+      "wisdom",
+      "charisma",
+      "inspirationPoints",
+    ]
+
+    numericFields.forEach((field) => {
+      sanitizedData[field] = Number(sanitizedData[field])
+    })
+
+    const heightFeet = Number(sanitizedData.heightFeet)
+    const heightInches = Number(sanitizedData.heightInches)
+    sanitizedData.height = `${heightFeet} ft ${heightInches} in`
+
+    sanitizedData.weight = `${sanitizedData.weight} lbs`
+
+    delete sanitizedData.heightFeet
+    delete sanitizedData.heightInches
+
+    return sanitizedData
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(sanitizeData())
+  }
+
   return (
     <div className="create-character-form container mt-5">
       <h1>Create Character Form</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         {
           <CharacterInfoForm
             formData={formData}
@@ -54,6 +90,7 @@ function CreateCharacterForm() {
           />
         }
         {<RolePlayForm formData={formData} updateFormData={updateFormData} />}
+        <button>Submit</button>
       </form>
     </div>
   )

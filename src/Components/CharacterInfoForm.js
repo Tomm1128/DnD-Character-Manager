@@ -19,13 +19,23 @@ function CharacterInfoForm({ formData, updateFormData }) {
       </div>
       <div className="form-group row">
         <label className="col-sm-2 col-form-label">Height:</label>
-        <div className="col-sm-10">
+        <div className="col-sm-5">
           <input
             type="text"
             className="form-control"
-            placeholder="Height"
-            name="height"
-            value={formData.height}
+            placeholder="Feet"
+            name="heightFeet"
+            value={formData.heightFeet}
+            onChange={updateFormData}
+          />
+        </div>
+        <div className="col-sm-5">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Inches"
+            name="heightInches"
+            value={formData.heightInches}
             onChange={updateFormData}
           />
         </div>
