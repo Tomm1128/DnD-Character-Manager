@@ -1,12 +1,18 @@
 const data = "http://localhost:3000/playerCharacters/"
-const url = "https://www.dnd5eapi.co/api/classes/"
+const url = "https://www.dnd5eapi.co/api/"
 
 const getCharacters = () => {
   return fetch(data).then((resp) => resp.json())
 }
 
-const getSpells = (classType) => {
-  return fetch(url + classType + "/spells").then((resp) => resp.json())
+const getSpellsByClass = (classType) => {
+  return fetch(url + "classes/" + classType + "/spells").then((resp) =>
+    resp.json()
+  )
+}
+
+const getSpellData = (spellName) => {
+  return fetch(url + "spells/" + spellName).then((resp) => resp.json())
 }
 
 const createId = async () => {
@@ -34,4 +40,4 @@ const createCharacter = async (newCharacter) => {
   }).then((resp) => resp.json())
 }
 
-export { getCharacters, createCharacter, getSpells }
+export { getCharacters, createCharacter, getSpellsByClass, getSpellData }
