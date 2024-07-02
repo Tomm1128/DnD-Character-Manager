@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import CharacterInfoForm from "./CharacterInfoForm"
 import AbilityScoresForm from "./AbilityScoreForm"
 import RolePlayForm from "./RolePlayForm"
+import { createCharacter } from "../services/fetchers"
 
 const initialValues = {
   name: "",
@@ -70,7 +71,7 @@ function CreateCharacterForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(sanitizeData())
+    createCharacter(sanitizeData())
   }
 
   return (
