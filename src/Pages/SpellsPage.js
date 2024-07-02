@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import NavBar from "../components/NavBar"
-import { getSpells } from "../services/fetchers"
+import { getSpellsByClass } from "../services/fetchers"
 import SpellCard from "../components/SpellCard"
 
 function SpellsPage({}) {
@@ -8,11 +8,13 @@ function SpellsPage({}) {
   const [classType, setClassType] = useState("cleric")
 
   useEffect(() => {
-    getSpells(classType).then((spellList) => setSpells(spellList.results))
+    getSpellsByClass(classType).then((spellList) =>
+      setSpells(spellList.results)
+    )
   }, [classType])
 
   const spellCards = spells.map((spell) => {
-    return <SpellCard spell={spell} />
+    return <SpellCard key={spell.name} spell={spell} />
   })
 
   return (

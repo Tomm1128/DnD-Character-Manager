@@ -1,7 +1,7 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 function SpellCard({ spell }) {
-  console.log(spell)
   return (
     <div className="col-lg-4 mb-4">
       <div className="card mx-auto" style={{ width: "25rem" }}>
@@ -10,9 +10,9 @@ function SpellCard({ spell }) {
           <h6 className="card-subtitle mb-2 text-muted">
             {"Spell Level: " + spell.level}
           </h6>
-          <a href="#" className="card-link">
-            View Character
-          </a>
+          <p>
+            <Link to={`/spells/${spell.index}`}>View Spell</Link>
+          </p>
         </div>
       </div>
     </div>
