@@ -22,7 +22,10 @@ function Home() {
       {characters.length > 0 ? (
         <div className="row row-cols-1 row-cols-md-3 g-4">{characterCards}</div>
       ) : (
-        <h2>No Created DnD Characters</h2>
+        <div>
+          <h2>No Created DnD Characters</h2>
+          <h2>Create One by Clicking the Create Character Button Above</h2>
+        </div>
       )}
     </div>
   )
