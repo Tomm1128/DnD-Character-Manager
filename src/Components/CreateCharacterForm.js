@@ -43,6 +43,8 @@ function CreateCharacterForm() {
     const sanitizedData = { ...formData }
 
     const numericFields = [
+      "heightFeet",
+      "heightInches",
       "level",
       "strength",
       "dexterity",
@@ -57,9 +59,7 @@ function CreateCharacterForm() {
       sanitizedData[field] = Number(sanitizedData[field])
     })
 
-    const heightFeet = Number(sanitizedData.heightFeet)
-    const heightInches = Number(sanitizedData.heightInches)
-    sanitizedData.height = `${heightFeet} ft ${heightInches} in`
+    sanitizedData.height = `${sanitizedData.heightFeet} ft ${sanitizedData.heightInches} in`
 
     sanitizedData.weight = `${sanitizedData.weight} lbs`
 
