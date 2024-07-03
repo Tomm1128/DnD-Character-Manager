@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 
 function CharacterCards({ character }) {
   return (
@@ -10,9 +11,7 @@ function CharacterCards({ character }) {
             {character.race + " " + character.class + " Lv: " + character.level}
           </h6>
           <p className="card-text">{character.additionalBackgroundNotes}</p>
-          <a href="#" className="card-link">
-            View Character
-          </a>
+          <Link to={`/view_character/${character.id}`}>View Character</Link>
         </div>
       </div>
     </div>

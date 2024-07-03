@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react"
-import { getCharacters } from "../services/fetchers"
+import { useParams } from "react-router-dom"
+import { getAllCharacters } from "../services/fetchers"
 import CharacterCards from "../components/CharacterCards"
 
 function Home() {
   const [characters, setCharacters] = useState(null)
 
   useEffect(() => {
-    getCharacters().then((charactersData) => setCharacters(charactersData))
+    getAllCharacters().then((charactersData) => setCharacters(charactersData))
   }, [])
 
   if (!characters) {
