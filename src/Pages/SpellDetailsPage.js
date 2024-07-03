@@ -19,8 +19,6 @@ function SpellDetailsPage() {
     return <h1>Loading</h1>
   }
 
-  console.log(spellData)
-
   return (
     <div className="spell-details">
       <NavBar />
