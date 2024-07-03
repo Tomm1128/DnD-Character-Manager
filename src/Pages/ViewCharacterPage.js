@@ -34,9 +34,12 @@ function ViewCharacterPage() {
             <p>
               <strong>Level:</strong> {character.level}
             </p>
+            <p>
+              <strong>Languages:</strong> {character.languages}
+            </p>
           </div>
         </div>
-        <div className="card">
+        <div className="card mb-4">
           <div className="card-body">
             <h3 className="card-title">Abilities</h3>
             <ul>
@@ -59,6 +62,27 @@ function ViewCharacterPage() {
                 <strong>Charisma:</strong> {character.charisma}
               </li>
             </ul>
+          </div>
+        </div>
+        <div className="card mb-4">
+          <div className="card-body">
+            <h3 className="card-title">Role Play Stats</h3>
+            <p>
+              <strong>Ideals:</strong> {character.ideals}
+            </p>
+            <p>
+              <strong>Bonds:</strong> {character.bonds}
+            </p>
+            <p>
+              <strong>Flaws:</strong> {character.flaws}
+            </p>
+            <p>
+              <strong>Background:</strong> {character.background}
+            </p>
+            <p>
+              <strong>Additional Background Notes:</strong>{" "}
+              {character.additionalBackgroundNotes}
+            </p>
           </div>
         </div>
         <div className="card mt-4">
