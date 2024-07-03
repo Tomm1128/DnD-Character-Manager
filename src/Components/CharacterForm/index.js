@@ -2,7 +2,11 @@ import React, { useState } from "react"
 import CharacterInfoForm from "./CharacterInfoForm"
 import AbilityScoresForm from "./AbilityScoreForm"
 import RolePlayForm from "./RolePlayForm"
-import { createCharacter } from "../../services/fetchers"
+import {
+  checkIfCharacterExists,
+  createCharacter,
+  updateCharacter,
+} from "../../services/fetchers"
 
 const initialValues = {
   name: "",
@@ -28,8 +32,8 @@ const initialValues = {
   additionalBackgroundNotes: "",
 }
 
-function CharacterForm() {
-  const [formData, setFormData] = useState(initialValues)
+function CharacterForm({ character = initialValues }) {
+  const [formData, setFormData] = useState(character)
   const updateFormData = ({ target }) => {
     const newData = {
       ...formData,
@@ -69,14 +73,21 @@ function CharacterForm() {
     return sanitizedData
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    createCharacter(sanitizeData())
+    const doesCharacterExist = await checkIfCharacterExists(character.id)
+    if (doesCharacterExist) {
+      updateCharacter(character.id, sanitizeData()).then(
+        alert("Character Updated!")
+      )
+    } else {
+      createCharacter(sanitizeData()).then(alert("Character Created!"))
+    }
   }
 
   return (
     <div className="create-character-form container mt-5">
-      <h1>Create Character Form</h1>
+      <h1>Character Form</h1>
       <form onSubmit={handleSubmit}>
         <CharacterInfoForm
           formData={formData}
