@@ -1,8 +1,12 @@
 const data = "http://localhost:3000/playerCharacters/"
 const url = "https://www.dnd5eapi.co/api/"
 
-const getCharacters = () => {
+const getAllCharacters = () => {
   return fetch(data).then((resp) => resp.json())
+}
+
+const getCharacter = (id) => {
+  return fetch(data + id).then((resp) => resp.json())
 }
 
 const getSpellsByClass = (classType) => {
@@ -16,7 +20,7 @@ const getSpellData = (spellName) => {
 }
 
 const createId = async () => {
-  const currentCharacters = await getCharacters()
+  const currentCharacters = await getAllCharacters()
   if (currentCharacters.length === 0) {
     return "1"
   } else {
@@ -40,4 +44,10 @@ const createCharacter = async (newCharacter) => {
   }).then((resp) => resp.json())
 }
 
-export { getCharacters, createCharacter, getSpellsByClass, getSpellData }
+export {
+  getAllCharacters,
+  getCharacter,
+  createCharacter,
+  getSpellsByClass,
+  getSpellData,
+}
