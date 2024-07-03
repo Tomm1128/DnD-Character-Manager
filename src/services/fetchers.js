@@ -19,29 +19,36 @@ const getSpellData = (spellName) => {
   return fetch(url + "spells/" + spellName).then((resp) => resp.json())
 }
 
-const createId = async () => {
-  const currentCharacters = await getAllCharacters()
-  if (currentCharacters.length === 0) {
-    return "1"
-  } else {
-    const lastEntry = currentCharacters[currentCharacters.length - 1]
-    const newId = parseInt(lastEntry.id, 10) + 1
-
-    return newId.toString()
-  }
-}
-
-const createCharacter = async (newCharacter) => {
-  const newId = await createId()
-
+const createCharacter = (newCharacter) => {
   return fetch(data, {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ id: newId, ...newCharacter }),
+    body: JSON.stringify(newCharacter),
   }).then((resp) => resp.json())
+}
+
+const updateCharacter = (id, updatedCharacter) => {
+  return fetch(data + id, {
+    method: "PATCH",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ ...updatedCharacter }),
+  }).then((resp) => resp.json())
+}
+
+const checkIfCharacterExists = (id) => {
+  return getCharacter(id).then((resp) => {
+    if (resp.ok) {
+      return true
+    } else if (Response.status === 404) {
+      return false
+    }
+  })
 }
 
 export {
@@ -50,4 +57,6 @@ export {
   createCharacter,
   getSpellsByClass,
   getSpellData,
+  checkIfCharacterExists,
+  updateCharacter,
 }
