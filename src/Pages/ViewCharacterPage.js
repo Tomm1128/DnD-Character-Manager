@@ -7,8 +7,6 @@ function ViewCharacterPage() {
   const params = useParams()
   const [character, setCharacter] = useState(null)
 
-  console.log(params)
-
   const fetchCharacter = () => {
     getCharacter(params.id).then(setCharacter)
   }
