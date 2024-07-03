@@ -19,15 +19,13 @@ function SpellDetailsPage() {
     return <h1>Loading</h1>
   }
 
+  console.log(spellData)
+
   return (
     <div className="spell-details">
       <NavBar />
       <div className="container">
         <h1 className="title">{spellData.name}</h1>
-        <div className="section">
-          <h2 className="subTitle">Description</h2>
-          <p className="text">{spellData.desc}</p>
-        </div>
         <div className="section">
           <h2 className="subTitle">Details</h2>
           <div className="detailRow">
@@ -51,6 +49,10 @@ function SpellDetailsPage() {
           </div>
           <div className="detailRow">
             <strong>Duration:</strong> <span>{spellData.duration}</span>
+          </div>
+          <div className="section">
+            <h2 className="subTitle">Description</h2>
+            <p className="text">{spellData.desc}</p>
           </div>
         </div>
       </div>
