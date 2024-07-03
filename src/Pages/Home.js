@@ -18,15 +18,32 @@ function Home() {
   })
 
   return (
-    <div className="Home">
-      {characters.length > 0 ? (
-        <div className="row row-cols-1 row-cols-md-3 g-4">{characterCards}</div>
-      ) : (
-        <div>
-          <h2>No Created DnD Characters</h2>
-          <h2>Create One by Clicking the Create Character Button Above</h2>
-        </div>
-      )}
+    <div className="home-container">
+      <div className="welcome-section">
+        <h1>Welcome to Dnd Character Manager</h1>
+        <h4>
+          Here you can create and manage your created characters for your DnD
+          campaigns. Here are just some of the features we offer:
+        </h4>
+        <ul>
+          <li>Create and Edit Characters</li>
+          <li>Explore each class in DnD 5e</li>
+          <li>Explore the large database of spells in Dnd 5e</li>
+        </ul>
+      </div>
+      <div className="character-section">
+        <h2>DnD Character's</h2>
+        {characters.length > 0 ? (
+          <div className="row row-cols-1 row-cols-md-3 g-4">
+            {characterCards}
+          </div>
+        ) : (
+          <div>
+            <h3>No Created DnD Characters</h3>
+            <h3>Create One by Clicking the Create Character Button Above</h3>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
