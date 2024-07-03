@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import { getCharacter } from "../services/fetchers"
 import NavBar from "../components/NavBar"
 
 function ViewCharacterPage() {
   const params = useParams()
+  const navigate = useNavigate()
   const [character, setCharacter] = useState(null)
 
   const fetchCharacter = () => {
@@ -17,6 +18,10 @@ function ViewCharacterPage() {
     return <h1>Loading...</h1>
   }
 
+  const handleClick = () => {
+    navigate(`/edit_character/${character.id}`)
+  }
+
   return (
     <div>
       <NavBar />
@@ -25,6 +30,7 @@ function ViewCharacterPage() {
           <div className="card-body">
             <h1 className="card-title text-center">{character.name}</h1>
             <h3 className="card-title">Character Details</h3>
+            <button onClick={handleClick}>Edit Character</button>
             <p>
               <strong>Race:</strong> {character.race}
             </p>
