@@ -1,4 +1,4 @@
-const allClasses = [
+const classes = [
   "Barbarian",
   "Bard",
   "Cleric",
@@ -24,7 +24,7 @@ const spellCastorClasses = [
   "Wizard",
 ]
 
-const allRaces = [
+const races = [
   "Dwarf",
   "Elf",
   "Halfling",
@@ -36,4 +36,4 @@ const allRaces = [
   "Tiefling",
 ]
 
-export { allClasses, spellCastorClasses, allRaces }
+export { classes, spellCastorClasses, races }

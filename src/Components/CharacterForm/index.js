@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import CharacterInfoForm from "./CharacterInfoForm"
 import AbilityScoresForm from "./AbilityScoreForm"
 import RolePlayForm from "./RolePlayForm"
-import { createCharacter } from "../services/fetchers"
+import { createCharacter } from "../../services/fetchers"
 
 const initialValues = {
   name: "",
@@ -28,7 +28,7 @@ const initialValues = {
   additionalBackgroundNotes: "",
 }
 
-function CreateCharacterForm() {
+function CharacterForm() {
   const [formData, setFormData] = useState(initialValues)
   const updateFormData = ({ target }) => {
     const newData = {
@@ -93,4 +93,4 @@ function CreateCharacterForm() {
   )
 }
 
-export default CreateCharacterForm
+export default CharacterForm

@@ -1,5 +1,5 @@
 import React from "react"
-import { allClasses, allRaces } from "../data"
+import { classes, races } from "../../data/dropDownData"
 
 function CharacterInfoForm({ formData, updateFormData }) {
   return (
@@ -103,7 +103,7 @@ function CharacterInfoForm({ formData, updateFormData }) {
             onChange={updateFormData}
           >
             <option value="">Select Race</option>
-            {allRaces.map((race) => (
+            {races.map((race) => (
               <option key={race} value={race}>
                 {race}
               </option>
@@ -121,7 +121,7 @@ function CharacterInfoForm({ formData, updateFormData }) {
             onChange={updateFormData}
           >
             <option value="">Select Class</option>
-            {allClasses.map((classType) => (
+            {classes.map((classType) => (
               <option key={classType} value={classType}>
                 {classType}
               </option>
