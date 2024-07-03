@@ -5,6 +5,16 @@ const getCharacters = () => {
   return fetch(data).then((resp) => resp.json())
 }
 
+const getSpellsByClass = (classType) => {
+  return fetch(url + "classes/" + classType + "/spells").then((resp) =>
+    resp.json()
+  )
+}
+
+const getSpellData = (spellName) => {
+  return fetch(url + "spells/" + spellName).then((resp) => resp.json())
+}
+
 const createId = async () => {
   const currentCharacters = await getCharacters()
   if (currentCharacters.length === 0) {
@@ -30,4 +40,4 @@ const createCharacter = async (newCharacter) => {
   }).then((resp) => resp.json())
 }
 
-export { getCharacters, createCharacter }
+export { getCharacters, createCharacter, getSpellsByClass, getSpellData }
