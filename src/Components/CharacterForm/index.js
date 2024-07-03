@@ -73,12 +73,15 @@ function CharacterForm({ character = initialValues }) {
     return sanitizedData
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    if (checkIfCharacterExists(character.id)) {
-      updateCharacter(character.id, sanitizeData())
+    const doesCharacterExist = await checkIfCharacterExists(character.id)
+    if (doesCharacterExist) {
+      updateCharacter(character.id, sanitizeData()).then(
+        alert("Character Updated!")
+      )
     } else {
-      createCharacter(sanitizeData())
+      createCharacter(sanitizeData()).then(alert("Character Created!"))
     }
   }
 

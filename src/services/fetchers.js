@@ -42,10 +42,10 @@ const updateCharacter = (id, updatedCharacter) => {
 }
 
 const checkIfCharacterExists = (id) => {
-  return getCharacter(id).then((resp) => {
+  return fetch(data + id).then((resp) => {
     if (resp.ok) {
       return true
-    } else if (Response.status === 404) {
+    } else {
       return false
     }
   })
