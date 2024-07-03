@@ -1,3 +1,13 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+}
+
 .create-character-form {
   padding: 20px;
 }
@@ -9,4 +19,65 @@
 
 .create-character-form .form-group {
   margin-bottom: 15px;
+}
+
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.welcome-section {
+  text-align: center;
+  padding: 20px;
+  list-style-position: inside;
+}
+
+.welcome-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.welcome-section h4 {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.welcome-section ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: left;
+  display: inline-block;
+}
+
+.welcome-section li {
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+
+.character-section {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.character-section .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.character-section .row .col {
+  flex: 1;
+  max-width: 300px;
+  margin: 10px;
+}
+
+.character-section h3 {
+  font-size: 1.5rem;
+  color: #888;
 }
