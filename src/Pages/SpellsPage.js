@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 
-import NavBar from "../components/NavBar"
-import SpellCard from "../components/SpellCard"
+import NavBar from "../Components/NavBar"
+import SpellCard from "../Components/SpellCard"
 import { getSpellsByClass } from "../services/fetchers"
 import { spellCastorClasses } from "../data/dropDownData"
 

@@ -1,8 +1,8 @@
 import React from "react"
 
-import Home from "./pages/Home"
+import Home from "./Pages/Home"
 
-import NavBar from "./components/NavBar"
+import NavBar from "./Components/NavBar"
 
 function App() {
   return (
