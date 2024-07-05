@@ -10,7 +10,12 @@ This project is a Single Page Application (SPA) built with React. I created a Dn
 
 ## Installation
 
-To get started with setting up the project, install a JSON server on your local machine by running this command:
+To get started with setting up the project, run this command: 
+
+```sh
+npm install 
+```
+You will also need to install a JSON server on your local machine by running this command:
 
 ```sh
 npm install -g json-server
