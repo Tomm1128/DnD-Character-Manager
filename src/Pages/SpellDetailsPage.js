@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { getSpellData } from "../services/fetchers"
 import { useParams } from "react-router-dom"
+
+import { getSpellData } from "../services/fetchers"
 import NavBar from "../components/NavBar"
 
 function SpellDetailsPage() {

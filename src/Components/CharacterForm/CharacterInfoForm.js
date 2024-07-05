@@ -1,4 +1,5 @@
 import React from "react"
+
 import { classes, races } from "../../data/dropDownData"
 
 function CharacterInfoForm({ formData, updateFormData }) {

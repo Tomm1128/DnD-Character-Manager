@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
+
 import { getCharacter } from "../services/fetchers"
 import NavBar from "../components/NavBar"
 

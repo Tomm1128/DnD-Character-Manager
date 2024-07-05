@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import { getAllCharacters } from "../services/fetchers"
+
 import CharacterCards from "../components/CharacterCards"
+import { getAllCharacters } from "../services/fetchers"
 
 function Home() {
   const [characters, setCharacters] = useState(null)

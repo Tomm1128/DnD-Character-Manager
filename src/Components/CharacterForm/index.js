@@ -1,13 +1,15 @@
 import React, { useState } from "react"
-import CharacterInfoForm from "./CharacterInfoForm"
-import AbilityScoresForm from "./AbilityScoreForm"
-import RolePlayForm from "./RolePlayForm"
+import { useNavigate } from "react-router-dom"
+
 import {
   checkIfCharacterExists,
   createCharacter,
   updateCharacter,
 } from "../../services/fetchers"
-import { useNavigate } from "react-router-dom"
+
+import AbilityScoresForm from "./AbilityScoreForm"
+import CharacterInfoForm from "./CharacterInfoForm"
+import RolePlayForm from "./RolePlayForm"
 
 const initialValues = {
   name: "",
