@@ -7,6 +7,7 @@ import {
   createCharacter,
   updateCharacter,
 } from "../../services/fetchers"
+import { useNavigate } from "react-router-dom"
 
 const initialValues = {
   name: "",
@@ -34,6 +35,7 @@ const initialValues = {
 
 function CharacterForm({ character = initialValues }) {
   const [formData, setFormData] = useState(character)
+  const navigate = useNavigate()
   const updateFormData = ({ target }) => {
     const newData = {
       ...formData,
@@ -77,11 +79,14 @@ function CharacterForm({ character = initialValues }) {
     event.preventDefault()
     const doesCharacterExist = await checkIfCharacterExists(character.id)
     if (doesCharacterExist) {
-      updateCharacter(character.id, sanitizeData()).then(
-        alert("Character Updated!")
-      )
+      updateCharacter(character.id, sanitizeData())
+        .then(alert("Character Updated!"))
+        .then(() => navigate("/"))
     } else {
-      createCharacter(sanitizeData()).then(alert("Character Created!"))
+      createCharacter(sanitizeData())
+        .then(() => setFormData(initialValues))
+        .then(alert("Character Created!"))
+        .then(() => navigate("/"))
     }
   }
 
@@ -98,7 +103,7 @@ function CharacterForm({ character = initialValues }) {
           updateFormData={updateFormData}
         />
         <RolePlayForm formData={formData} updateFormData={updateFormData} />
-        <button>Submit</button>
+        <button className="btn btn-primary">Submit</button>
       </form>
     </div>
   )
