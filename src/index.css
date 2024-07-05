@@ -81,3 +81,15 @@ html {
   font-size: 1.5rem;
   color: #888;
 }
+
+.spells-header {
+  text-align: center;
+}
+
+#castor-dropdown {
+  margin: 20px;
+}
+
+#castor-dropdown-label {
+  margin: 20px;
+}
