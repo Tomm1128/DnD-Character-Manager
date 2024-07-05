@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
-import { getAllCharacters } from "../services/fetchers"
+
 import CharacterCards from "../components/CharacterCards"
+import { getAllCharacters } from "../services/fetchers"
 
 function Home() {
   const [characters, setCharacters] = useState(null)
@@ -24,11 +24,10 @@ function Home() {
         <h1>Welcome to Dnd Character Manager</h1>
         <h4>
           Here you can create and manage your created characters for your DnD
-          campaigns. Here are just some of the features we offer:
+          campaigns. Here are the features we offer:
         </h4>
         <ul>
           <li>Create and Edit Characters</li>
-          <li>Explore each class in DnD 5e</li>
           <li>Explore the large database of spells in Dnd 5e</li>
         </ul>
       </div>

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react"
-import NavBar from "../components/NavBar"
-import CharacterForm from "../components/CharacterForm"
 import { useParams } from "react-router-dom"
+
+import CharacterForm from "../components/CharacterForm"
 import { getCharacter } from "../services/fetchers"
+import NavBar from "../components/NavBar"
 
 function EditCharacterPage() {
   const params = useParams()

@@ -10,7 +10,6 @@ function CharacterCards({ character }) {
           <h6 className="card-subtitle mb-2 text-muted">
             {character.race + " " + character.class + " Lv: " + character.level}
           </h6>
-          <p className="card-text">{character.additionalBackgroundNotes}</p>
           <Link to={`/view_character/${character.id}`}>View Character</Link>
         </div>
       </div>

@@ -21,11 +21,6 @@ function NavBar() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/">
-                  Classes
-                </NavLink>
-              </li>
-              <li className="nav-item">
                 <NavLink className="nav-link" to="/spells">
                   Spells
                 </NavLink>
