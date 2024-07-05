@@ -68,7 +68,7 @@ function CharacterInfoForm({ formData, updateFormData }) {
         </div>
       </div>
       <div className="form-group row">
-        <label className="col-sm-2 col-form-label">Languages:</label>
+        <label className="col-sm-2 col-form-label">Language:</label>
         <div className="col-sm-10">
           <input
             type="text"
