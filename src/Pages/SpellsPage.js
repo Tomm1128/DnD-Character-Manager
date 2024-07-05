@@ -6,7 +6,7 @@ import { getSpellsByClass } from "../services/fetchers"
 import { spellCastorClasses } from "../data/dropDownData"
 
 function SpellsPage({}) {
-  const [spells, setSpells] = useState([])
+  const [spells, setSpells] = useState(null)
   const [classType, setClassType] = useState("bard")
 
   useEffect(() => {
@@ -15,6 +15,15 @@ function SpellsPage({}) {
     )
   }, [classType])
 
+  if (!spells) {
+    return (
+      <div>
+        <h1 className="spells-header">Spells</h1>
+        <h2>Loading....</h2>
+      </div>
+    )
+  }
+
   const spellCards = spells.map((spell) => {
     return <SpellCard key={spell.name} spell={spell} />
   })
@@ -22,17 +31,19 @@ function SpellsPage({}) {
   return (
     <div className="App">
       <NavBar />
-      <h1>Spells</h1>
+      <h1 className="spells-header">Spells</h1>
       <div className="form-group row">
-        <label className="col-sm-1 col-form-label">Class:</label>
+        <label id="castor-dropdown-label" className="col-sm-1 col-form-label">
+          Class:
+        </label>
         <div className="col-sm-10">
           <select
+            id="castor-dropdown"
             className="form-control"
             name="class"
             value={classType}
             onChange={({ target }) => setClassType(target.value)}
           >
-            <option value="">Select Class</option>
             {spellCastorClasses.map((castor) => (
               <option key={castor} value={castor.toLowerCase()}>
                 {castor}
@@ -41,6 +52,7 @@ function SpellsPage({}) {
           </select>
         </div>
       </div>
+
       <div className="row row-cols-1 row-cols-md-3 g-4">{spellCards}</div>
     </div>
   )
