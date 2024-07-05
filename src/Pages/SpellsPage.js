@@ -5,7 +5,7 @@ import SpellCard from "../Components/SpellCard"
 import { getSpellsByClass } from "../services/fetchers"
 import { spellCastorClasses } from "../data/dropDownData"
 
-function SpellsPage({}) {
+function SpellsPage() {
   const [spells, setSpells] = useState(null)
   const [classType, setClassType] = useState("bard")
 

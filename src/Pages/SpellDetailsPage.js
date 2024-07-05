@@ -14,7 +14,7 @@ function SpellDetailsPage() {
     )
   }
 
-  useEffect(fetchSpellData, [])
+  useEffect(fetchSpellData, [params.index])
 
   if (!spellData) {
     return <h1>Loading</h1>
