@@ -43,7 +43,7 @@ function SpellDetailsPage() {
           <div className="detailRow">
             <strong>Components:</strong>{" "}
             <span>
-              {spellData.Components.map((component) => component + " ")}
+              {spellData.components.map((component) => component + " ")}
             </span>
           </div>
           <div className="detailRow">
