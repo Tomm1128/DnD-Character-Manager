@@ -1,7 +1,7 @@
 import React from "react"
 
-import CharacterForm from "../components/CharacterForm"
-import NavBar from "../components/NavBar"
+import CharacterForm from "../Components/CharacterForm"
+import NavBar from "../Components/NavBar"
 
 function CreateCharacterPage() {
   return (

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
 import { getSpellData } from "../services/fetchers"
-import NavBar from "../components/NavBar"
+import NavBar from "../Components/NavBar"
 
 function SpellDetailsPage() {
   const params = useParams()
@@ -43,7 +43,7 @@ function SpellDetailsPage() {
           <div className="detailRow">
             <strong>Components:</strong>{" "}
             <span>
-              {spellData.components.map((component) => component + " ")}
+              {spellData.Components.map((component) => component + " ")}
             </span>
           </div>
           <div className="detailRow">

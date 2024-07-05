@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 
-import CharacterCards from "../components/CharacterCards"
+import CharacterCards from "../Components/CharacterCards"
 import { getAllCharacters } from "../services/fetchers"
 
 function Home() {

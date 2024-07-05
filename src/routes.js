@@ -1,9 +1,9 @@
 import App from "./App"
-import CreateCharacterPage from "./pages/CreateCharacterPage"
-import EditCharacterPage from "./pages/EditCharacterPage"
-import SpellDetailsPage from "./pages/SpellDetailsPage"
-import SpellsPage from "./pages/SpellsPage"
-import ViewCharacterPage from "./pages/ViewCharacterPage"
+import CreateCharacterPage from "./Pages/CreateCharacterPage"
+import EditCharacterPage from "./Pages/EditCharacterPage"
+import SpellDetailsPage from "./Pages/SpellDetailsPage"
+import SpellsPage from "./Pages/SpellsPage"
+import ViewCharacterPage from "./Pages/ViewCharacterPage"
 
 const routes = [
   {
