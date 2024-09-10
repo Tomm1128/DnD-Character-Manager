@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
 import CharacterForm from "../Components/CharacterForm"
 import { getCharacter } from "../services/fetchers"
 import NavBar from "../Components/NavBar"
+import Character from "../types/character"
 
-function EditCharacterPage() {
+
+const EditCharacterPage: React.FC = () => {
   const params = useParams()
-  const [character, setCharacter] = useState(null)
+  const [character, setCharacter] = useState<Character | null>(null);
 
   const fetchCharacter = () => {
     getCharacter(params.id).then(setCharacter)
@@ -19,13 +21,12 @@ function EditCharacterPage() {
     return <h1>Loading...</h1>
   }
 
-  const setUpCharacterForEdit = () => {
-    const toBeEditedCharacter = { ...character }
+  const setUpCharacterForEdit = ():Character => {
+    const toBeEditedCharacter: Character = { ...character }
     const [feetPart, inchesPart] = toBeEditedCharacter.height.split(" ft ")
     toBeEditedCharacter.weight = toBeEditedCharacter.weight.split(" lbs ")[0]
     toBeEditedCharacter.heightFeet = parseInt(feetPart, 10)
     toBeEditedCharacter.heightInches = parseInt(inchesPart.split(" in")[0], 10)
-    delete toBeEditedCharacter.height
     return toBeEditedCharacter
   }
 
