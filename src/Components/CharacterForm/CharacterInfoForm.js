@@ -123,7 +123,7 @@ function CharacterInfoForm({ formData, updateFormData }) {
           >
             <option value="">Select Class</option>
             {classes.map((classType) => (
-              <option key={classType} value={classType}>
+              <option key={classType} value={classType.toLowerCase()}>
                 {classType}
               </option>
             ))}

@@ -20,7 +20,7 @@ const initialValues = {
   languages: [],
   level: 0,
   race: "",
-  class: "",
+  class: "bard",
   strength: 10,
   dexterity: 10,
   constitution: 10,
@@ -33,15 +33,22 @@ const initialValues = {
   inspirationPoints: 0,
   background: "",
   additionalBackgroundNotes: "",
+  spells: [],
 }
 
 function CharacterForm({ character = initialValues }) {
   const [formData, setFormData] = useState(character)
   const navigate = useNavigate()
   const updateFormData = ({ target }) => {
+    let value
+    if (target.selectedOptions) {
+      value = Array.from(target.selectedOptions, (option) => option.value)
+    } else {
+      value = target.value
+    }
     const newData = {
       ...formData,
-      [target.name]: target.value,
+      [target.name]: value,
     }
 
     setFormData(newData)

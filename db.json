@@ -1,3 +1,32 @@
 {
-  "playerCharacters": []
+  "playerCharacters": [
+    {
+      "id": "1f4f",
+      "name": "Bob",
+      "weight": "150 lbs lbs",
+      "alignment": "CG",
+      "languages": "Dwarven",
+      "level": 5,
+      "race": [
+        "Dwarf"
+      ],
+      "class": [
+        "rogue"
+      ],
+      "strength": 12,
+      "dexterity": 16,
+      "constitution": 13,
+      "intelligence": 15,
+      "wisdom": 14,
+      "charisma": 12,
+      "ideals": "ideals",
+      "bonds": "bonds",
+      "flaws": "flaws",
+      "inspirationPoints": 2,
+      "background": "Scholar",
+      "additionalBackgroundNotes": "",
+      "spells": [],
+      "height": "3 ft 4 in"
+    }
+  ]
 }

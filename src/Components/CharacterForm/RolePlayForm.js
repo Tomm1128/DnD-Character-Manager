@@ -1,6 +1,19 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
+import { getSpellsByClass } from "../../services/fetchers"
 
 function RolePlayForm({ formData, updateFormData }) {
+  const [spellList, setSpellList] = useState([])
+
+  useEffect(() => {
+    getSpellsByClass(formData.class).then(({ results }) =>
+      setSpellList(results)
+    )
+  }, [formData.class])
+
+  const hasSpell = (spellIndex) => {
+    return formData.spells.includes(spellIndex)
+  }
+
   return (
     <>
       <h3>Role Play Stats</h3>
@@ -78,6 +91,25 @@ function RolePlayForm({ formData, updateFormData }) {
             value={formData.additionalBackgroundNotes}
             onChange={updateFormData}
           ></textarea>
+        </div>
+      </div>
+      <div className="form-group row">
+        <label className="col-sm-2 col-form-label">Spells:</label>
+        <div className="col-sm-10">
+          <select
+            className="form-control"
+            name="spells"
+            value={formData.spells}
+            onChange={updateFormData}
+            multiple
+          >
+            <option value="">Select Spell</option>
+            {spellList.map((spell) => (
+              <option key={spell.index} value={spell.index}>
+                {spell.name}
+              </option>
+            ))}
+          </select>
         </div>
       </div>
     </>

@@ -13,7 +13,7 @@ function EditCharacterPage() {
     getCharacter(params.id).then(setCharacter)
   }
 
-  useEffect(fetchCharacter, [params.id])
+  useEffect(() => fetchCharacter(), [params.id])
 
   if (!character) {
     return <h1>Loading...</h1>
