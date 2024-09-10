@@ -1,7 +1,7 @@
-import React from "react"
 import { Link } from "react-router-dom"
+import Character from "../types/character"
 
-function CharacterCards({ character }) {
+function CharacterCards({ character }: {character: Character}) {
   return (
     <div className="col-lg-4 mb-4">
       <div className="card mx-auto" style={{ width: "25rem" }}>
