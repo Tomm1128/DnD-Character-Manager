@@ -1,5 +1,3 @@
-import React from "react"
-
 import CharacterForm from "../Components/CharacterForm"
 import NavBar from "../Components/NavBar"
 

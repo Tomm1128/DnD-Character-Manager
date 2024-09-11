@@ -1,10 +1,10 @@
-import React from "react"
+import * as React from "react"
 
 import Home from "./Pages/Home"
 
 import NavBar from "./Components/NavBar"
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <NavBar />

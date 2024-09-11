@@ -1,7 +1,12 @@
-import React from "react"
 import { Link } from "react-router-dom"
 
-function SpellCard({ spell }) {
+interface Spell {
+  name: string;
+  level: number;
+  index: number;
+}
+
+function SpellCard({ spell }: {spell: Spell}) {
   return (
     <div className="col-lg-4 mb-4">
       <div className="card mx-auto" style={{ width: "25rem" }}>
