@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import Character from "../types/character"
+import { Character } from "../types"
 
 function CharacterCards({ character }: {character: Character}) {
   return (

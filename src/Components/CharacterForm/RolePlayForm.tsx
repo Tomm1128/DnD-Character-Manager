@@ -1,18 +1,24 @@
-import React, { useEffect, useState } from "react"
-import { getSpellsByClass } from "../../services/fetchers"
+import { useEffect, useState } from "react";
+import { UseFormRegister, FieldErrors } from "react-hook-form"
+import { getSpellsByClass } from "../../services/fetchers";
+import { FormData, Spell } from "../../types"
 
-function RolePlayForm({ formData, updateFormData }) {
-  const [spellList, setSpellList] = useState([])
+interface AbilityScoreFormProps {
+  register: UseFormRegister<FormData>
+  errors: FieldErrors<FormData>
+}
+
+const RolePlayForm: React.FC<AbilityScoreFormProps> = ({
+  register,
+  errors,
+}) => {
+  const [spellList, setSpellList] = useState<Spell[]>([])
 
   useEffect(() => {
-    getSpellsByClass(formData.class).then(({ results }) =>
+    getSpellsByClass(register("class")).then(({ results }) =>
       setSpellList(results)
-    )
-  }, [formData.class])
-
-  const hasSpell = (spellIndex) => {
-    return formData.spells.includes(spellIndex)
-  }
+    );
+  }, [register("class"), register]);
 
   return (
     <>
@@ -21,64 +27,64 @@ function RolePlayForm({ formData, updateFormData }) {
         <label className="col-sm-2 col-form-label">Ideals:</label>
         <div className="col-sm-10">
           <textarea
-            className="form-control"
+            className={`form-control ${errors.ideals ? 'is-invalid' : ''}`}
             placeholder="Write your character's Ideals"
-            name="ideals"
-            value={formData.ideals}
-            onChange={updateFormData}
+            {...register("ideals", { required: "Ideals are required." })}
           ></textarea>
+          {errors.ideals && <span className="text-danger">{errors.ideals.message}</span>}
         </div>
       </div>
+
       <div className="form-group row">
         <label className="col-sm-2 col-form-label">Bonds:</label>
         <div className="col-sm-10">
           <textarea
-            className="form-control"
+            className={`form-control ${errors.bonds ? 'is-invalid' : ''}`}
             placeholder="Write about your character's Bonds"
-            name="bonds"
-            value={formData.bonds}
-            onChange={updateFormData}
+            {...register("bonds", { required: "Bonds are required." })}
           ></textarea>
+          {errors.bonds && <span className="text-danger">{errors.bonds.message}</span>}
         </div>
       </div>
+
       <div className="form-group row">
         <label className="col-sm-2 col-form-label">Flaws:</label>
         <div className="col-sm-10">
           <textarea
-            className="form-control"
+            className={`form-control ${errors.flaws ? 'is-invalid' : ''}`}
             placeholder="Write your character's Flaws"
-            name="flaws"
-            value={formData.flaws}
-            onChange={updateFormData}
+            {...register("flaws", { required: "Flaws are required." })}
           ></textarea>
+          {errors.flaws && <span className="text-danger">{errors.flaws.message}</span>}
         </div>
       </div>
+
       <div className="form-group row">
         <label className="col-sm-2 col-form-label">Inspiration Points:</label>
         <div className="col-sm-10">
           <input
             type="number"
-            className="form-control"
-            placeholder={0}
-            name="inspirationPoints"
-            value={formData.inspirationPoints}
-            onChange={updateFormData}
+            className={`form-control ${errors.inspirationPoints ? 'is-invalid' : ''}`}
+            placeholder={"0"}
+            {...register("inspirationPoints", { required: "Inspiration Points are required.", min: 0 })}
           />
+          {errors.inspirationPoints && <span className="text-danger">{errors.inspirationPoints.message}</span>}
         </div>
       </div>
+
       <div className="form-group row">
         <label className="col-sm-2 col-form-label">Background:</label>
         <div className="col-sm-10">
           <input
             type="text"
-            className="form-control"
+            className={`form-control ${errors.background ? 'is-invalid' : ''}`}
             placeholder="Background"
-            name="background"
-            value={formData.background}
-            onChange={updateFormData}
+            {...register("background", { required: "Background is required." })}
           />
+          {errors.background && <span className="text-danger">{errors.background.message}</span>}
         </div>
       </div>
+
       <div className="form-group row">
         <label className="col-sm-2 col-form-label">
           Additional Background Notes:
@@ -87,20 +93,17 @@ function RolePlayForm({ formData, updateFormData }) {
           <textarea
             className="form-control"
             placeholder="Add more details to your character's background if you would like (optional)"
-            name="additionalBackgroundNotes"
-            value={formData.additionalBackgroundNotes}
-            onChange={updateFormData}
+            {...register("additionalBackgroundNotes")}
           ></textarea>
         </div>
       </div>
+
       <div className="form-group row">
         <label className="col-sm-2 col-form-label">Spells:</label>
         <div className="col-sm-10">
           <select
-            className="form-control"
-            name="spells"
-            value={formData.spells}
-            onChange={updateFormData}
+            className={`form-control ${errors.spells ? 'is-invalid' : ''}`}
+            {...register("spells")}
             multiple
           >
             <option value="">Select Spell</option>
@@ -110,10 +113,11 @@ function RolePlayForm({ formData, updateFormData }) {
               </option>
             ))}
           </select>
+          {errors.spells && <span className="text-danger">{errors.spells.message}</span>}
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default RolePlayForm
+export default RolePlayForm;
