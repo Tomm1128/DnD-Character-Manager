@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom"
 import CharacterForm from "../Components/CharacterForm"
 import { getCharacter } from "../services/fetchers"
 import NavBar from "../Components/NavBar"
-import Character from "../types/character"
+import { Character } from "../types"
 
 
 const EditCharacterPage: React.FC = () => {
